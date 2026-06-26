@@ -1,0 +1,6 @@
+{
+  "name": "Paras Packaging",
+  "description": "Innovative food, corrugated, custom-printed, retail and sustainable packaging trusted by FMCG, retail and industrial brands worldwide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
