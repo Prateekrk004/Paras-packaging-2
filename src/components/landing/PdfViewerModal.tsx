@@ -12,6 +12,7 @@ import {
   FileWarning, 
   Maximize2 
 } from "lucide-react";
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
 interface PdfViewerModalProps {
   isOpen: boolean;
@@ -35,11 +36,15 @@ export function PdfViewerModal({ isOpen, onClose, pdfUrl, title, description }: 
   const pdfDocRef = useRef<any>(null);
   const renderTaskRef = useRef<any>(null);
 
+  const resolvedPdfUrl = pdfUrl.startsWith("/")
+    ? `${import.meta.env.BASE_URL.replace(/\/$/, "")}${pdfUrl}`
+    : pdfUrl;
+
   const handleDownload = async () => {
-    if (!pdfUrl) return;
+    if (!resolvedPdfUrl) return;
     setDownloading(true);
     try {
-      const response = await fetch(pdfUrl);
+      const response = await fetch(resolvedPdfUrl);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -71,8 +76,8 @@ export function PdfViewerModal({ isOpen, onClose, pdfUrl, title, description }: 
     import("pdfjs-dist")
       .then((pdfjsLib) => {
         if (!isCurrent) return;
-        // Configure PDF.js worker using unpkg CDN
-        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
+        // Configure PDF.js worker using official Vite-compatible worker url
+        pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
         setPdfjs(pdfjsLib);
       })
       .catch((err) => {
@@ -111,14 +116,14 @@ export function PdfViewerModal({ isOpen, onClose, pdfUrl, title, description }: 
 
   // Load the PDF Document
   useEffect(() => {
-    if (!isOpen || !pdfUrl || !pdfjs) return;
+    if (!isOpen || !resolvedPdfUrl || !pdfjs) return;
 
     let isCurrent = true;
     setLoading(true);
     setError(false);
 
-    if (typeof pdfUrl !== "string" || !pdfUrl.trim()) {
-      console.warn("Invalid or empty PDF URL:", pdfUrl);
+    if (typeof resolvedPdfUrl !== "string" || !resolvedPdfUrl.trim()) {
+      console.warn("Invalid or empty PDF URL:", resolvedPdfUrl);
       setError(true);
       setLoading(false);
       return;
@@ -128,54 +133,27 @@ export function PdfViewerModal({ isOpen, onClose, pdfUrl, title, description }: 
 
     const checkAndLoadPdf = async () => {
       try {
-        // Fetch only the first 4 bytes to check if it's a valid PDF and exists
-        const response = await fetch(pdfUrl, {
-          method: "GET",
-          headers: { Range: "bytes=0-3" }
-        });
-
-        if (!isCurrent) return;
-
-        if (!response.ok) {
-          setError(true);
-          setLoading(false);
-          return;
-        }
-
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.includes("text/html")) {
-          // It's likely returning index.html due to SPA fallback
-          setError(true);
-          setLoading(false);
-          return;
-        }
-
-        const buffer = await response.arrayBuffer();
-        const arr = new Uint8Array(buffer);
-        const header = String.fromCharCode(...arr.slice(0, 4));
-        if (!header.startsWith("%PDF")) {
-          setError(true);
-          setLoading(false);
-          return;
-        }
-
-        // If it starts with %PDF, it's a valid PDF structure, safe to parse with pdf.js
         loadingTask = pdfjs.getDocument({
-          url: pdfUrl,
-          withCredentials: false
+          url: resolvedPdfUrl,
+          withCredentials: false,
         });
 
         const pdfDoc = await loadingTask.promise;
+
         if (!isCurrent) return;
 
         pdfDocRef.current = pdfDoc;
         setNumPages(pdfDoc.numPages);
         setLoading(false);
+        setError(false);
       } catch (err: any) {
-        // Only log if not a standard cancel error
-        if (err?.name !== "RenderingCancelledException" && err?.name !== "AbortError") {
-          console.warn("PDF pre-check or loading failed:", err);
+        if (
+          err?.name !== "RenderingCancelledException" &&
+          err?.name !== "AbortError"
+        ) {
+          console.error("Failed to load PDF:", err);
         }
+
         if (isCurrent) {
           setError(true);
           setLoading(false);
@@ -191,7 +169,7 @@ export function PdfViewerModal({ isOpen, onClose, pdfUrl, title, description }: 
         loadingTask.destroy().catch(() => {});
       }
     };
-  }, [pdfUrl, isOpen, pdfjs]);
+  }, [resolvedPdfUrl, isOpen, pdfjs]);
 
   // Render the current page on canvas
   useEffect(() => {

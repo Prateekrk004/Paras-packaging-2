@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
-import { Utensils, ChefHat, ShoppingBag, Package, ShoppingCart, Factory, Truck, Pill } from "lucide-react";
+import { Utensils, ChefHat, ShoppingBag, ShoppingCart, Factory, Truck } from "lucide-react";
 
 const items = [
   { icon: Utensils, label: "Food & Beverage" },
   { icon: ChefHat, label: "Restaurants" },
   { icon: ShoppingBag, label: "Retail" },
-  { icon: Package, label: "FMCG" },
   { icon: ShoppingCart, label: "E‑Commerce" },
   { icon: Factory, label: "Manufacturing" },
   { icon: Truck, label: "Logistics" },
-  { icon: Pill, label: "Pharmaceuticals" },
 ];
 
 export function Industries() {

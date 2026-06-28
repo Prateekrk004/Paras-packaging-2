@@ -1,6 +1,5 @@
 import { Navbar } from "./Navbar";
 import { Hero } from "./Hero";
-import { TrustWall } from "./TrustWall";
 import { Categories } from "./Categories";
 import { WhyUs } from "./WhyUs";
 import { Sustainability } from "./Sustainability";
@@ -17,7 +16,6 @@ export default function LandingPage() {
       <Navbar />
       <main>
         <Hero />
-        <TrustWall />
         <Categories />
         <WhyUs />
         <Sustainability />

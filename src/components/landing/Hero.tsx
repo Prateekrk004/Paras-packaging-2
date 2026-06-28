@@ -1,18 +1,16 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles, Package } from "lucide-react";
+import { ArrowRight, Sparkles, Package, MessageCircle } from "lucide-react";
 import { useRef } from "react";
 import { Counter } from "./Counter";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
-const heroImg = "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=1200";
-const ecoImg = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800";
-const customImg = "https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&q=80&w=800";
+const heroImg = "https://i.ibb.co/m564FSnP/Whats-App-Image-2026-06-28-at-22-39-16.jpg";
+const ecoImg = "https://i.ibb.co/sptG8d72/Whats-App-Image-2026-06-28-at-22-40-27.jpg";
+const customImg = "https://i.ibb.co/4ZwJdtM0/Whats-App-Image-2026-06-28-at-22-40-12.jpg";
+const industrialImg = "https://i.ibb.co/bM70scRz/Whats-App-Image-2026-06-28-at-22-40-41.jpg";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const yA = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const yB = useTransform(scrollYProgress, [0, 1], [0, -160]);
-  const yC = useTransform(scrollYProgress, [0, 1], [0, -120]);
 
   return (
     <section ref={ref} id="top" className="relative isolate overflow-hidden bg-warm-mesh pt-32 pb-24 sm:pt-40 sm:pb-32">
@@ -45,27 +43,30 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
             className="font-display mt-6 text-[clamp(2.75rem,6.5vw,5.5rem)] font-medium leading-[0.98] tracking-tight text-foreground"
           >
-            Packaging that{" "}
-            <span className="italic text-accent">protects</span>,
-            <br className="hidden sm:block" /> preserves & elevates
-            <br className="hidden sm:block" />
-            <span className="relative inline-block">
-              brands.
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none">
-                <path d="M2 9 C 60 2, 140 2, 198 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-accent" />
-              </svg>
-            </span>
+            <TextAnimate animation="slideLeft" by="character" as="span" delay={0.1}>
+              Paras
+            </TextAnimate>{" "}
+            <TextAnimate animation="slideLeft" by="character" as="span" className="text-accent" delay={0.25}>
+              Packaging
+            </TextAnimate>
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-7 max-w-xl text-base text-foreground/70 sm:text-lg"
           >
-            Delivering innovative food packaging, industrial packaging and custom branded
-            solutions trusted by businesses across FMCG, retail and manufacturing.
-          </motion.p>
+            <TextAnimate
+              animation="slideLeft"
+              by="character"
+              as="span"
+              delay={0.45}
+              stagger={0.008}
+            >
+              Delivering innovative food packaging, industrial packaging, and custom branded solutions trusted by businesses across FMCG, retail, and manufacturing.
+            </TextAnimate>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -74,11 +75,13 @@ export function Hero() {
             className="mt-9 flex flex-wrap items-center gap-3"
           >
             <a
-              href="#contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-elegant transition-all hover:scale-[1.02] hover:bg-accent hover:shadow-glow"
+              href="https://wa.me/919844250447"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-medium text-white shadow-elegant transition-all hover:scale-[1.02] hover:bg-[#1ebd59] hover:shadow-glow"
             >
-              Get a Quote
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp Us
             </a>
             <a
               href="#categories"
@@ -111,24 +114,165 @@ export function Hero() {
           </motion.dl>
         </div>
 
-        {/* Right: floating image collage */}
-        <div className="relative mx-auto h-[460px] w-full max-w-xl sm:h-[560px] lg:h-[640px]">
-          <motion.div style={{ y: yA }} className="absolute right-0 top-4 w-[78%] overflow-hidden rounded-3xl shadow-elegant ring-1 ring-foreground/10">
-            <img src={heroImg} alt="Premium kraft packaging" width={1600} height={1200} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
-          </motion.div>
-          <motion.div style={{ y: yB }} className="animate-float absolute -left-2 bottom-16 w-[52%] overflow-hidden rounded-2xl shadow-elegant ring-1 ring-foreground/10">
-            <img src={customImg} alt="Custom branded packaging" width={1200} height={1200} loading="lazy" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
-          </motion.div>
-          <motion.div style={{ y: yC }} className="animate-float absolute right-6 bottom-0 w-[44%] overflow-hidden rounded-2xl shadow-elegant ring-1 ring-foreground/10" >
-            <img src={ecoImg} alt="Eco-friendly packaging" width={1200} height={1200} loading="lazy" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
-          </motion.div>
+        {/* Right: floating 4-image grid/bento layout */}
+        <div className="relative mx-auto h-[480px] w-full max-w-xl sm:h-[580px] lg:h-[660px]">
+          {/* Bento Column 1: Left column (56% of container width) */}
+          <div className="absolute left-0 top-0 w-[56%] h-full flex flex-col gap-4 z-10 hover:z-20 transition-all duration-300">
+            {/* Card 1: Top Left */}
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              whileHover={{
+                scale: 1.06,
+                rotate: -1.8,
+                zIndex: 20,
+                boxShadow: "0 40px 80px -20px color-mix(in oklab, var(--brand) 55%, transparent)",
+              }}
+              transition={{
+                y: {
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+                default: {
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 25,
+                  mass: 0.8,
+                }
+              }}
+              className="h-[55%] w-full overflow-hidden rounded-3xl shadow-elegant ring-1 ring-foreground/10 bg-card cursor-pointer"
+            >
+              <img
+                src={heroImg}
+                alt="Premium food packaging"
+                width={1600}
+                height={1200}
+                className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+
+            {/* Card 3: Bottom Left */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              whileHover={{
+                scale: 1.06,
+                rotate: 1.2,
+                zIndex: 20,
+                boxShadow: "0 40px 80px -20px color-mix(in oklab, var(--brand) 55%, transparent)",
+              }}
+              transition={{
+                y: {
+                  duration: 4.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                },
+                default: {
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 25,
+                  mass: 0.8,
+                }
+              }}
+              className="h-[41%] w-full overflow-hidden rounded-2xl shadow-elegant ring-1 ring-foreground/10 bg-card cursor-pointer"
+            >
+              <img
+                src={ecoImg}
+                alt="Eco-friendly packaging"
+                width={1200}
+                height={1200}
+                loading="lazy"
+                className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+          </div>
+
+          {/* Bento Column 2: Right column (40% of container width, slightly offset vertically) */}
+          <div className="absolute right-0 top-0 w-[40%] h-full flex flex-col gap-4 pt-10 z-10 hover:z-20 transition-all duration-300">
+            {/* Card 2: Top Right */}
+            <motion.div
+              animate={{ y: [0, -16, 0] }}
+              whileHover={{
+                scale: 1.06,
+                rotate: 1.8,
+                zIndex: 20,
+                boxShadow: "0 40px 80px -20px color-mix(in oklab, var(--brand) 55%, transparent)",
+              }}
+              transition={{
+                y: {
+                  duration: 5.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.25,
+                },
+                default: {
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 25,
+                  mass: 0.8,
+                }
+              }}
+              className="h-[40%] w-full overflow-hidden rounded-2xl shadow-elegant ring-1 ring-foreground/10 bg-card cursor-pointer"
+            >
+              <img
+                src={customImg}
+                alt="Custom branded packaging"
+                width={1200}
+                height={1200}
+                loading="lazy"
+                className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+
+            {/* Card 4: Bottom Right */}
+            <motion.div
+              animate={{ y: [0, -14, 0] }}
+              whileHover={{
+                scale: 1.06,
+                rotate: -1.2,
+                zIndex: 20,
+                boxShadow: "0 40px 80px -20px color-mix(in oklab, var(--brand) 55%, transparent)",
+              }}
+              transition={{
+                y: {
+                  duration: 5.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.75,
+                },
+                default: {
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 25,
+                  mass: 0.8,
+                }
+              }}
+              className="h-[51%] w-full overflow-hidden rounded-3xl shadow-elegant ring-1 ring-foreground/10 bg-card cursor-pointer"
+            >
+              <img
+                src={industrialImg}
+                alt="Industrial packaging"
+                width={1200}
+                height={1200}
+                loading="lazy"
+                className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+          </div>
 
           {/* Floating badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="absolute left-2 top-10 glass rounded-2xl px-4 py-3 shadow-soft"
+            animate={{ opacity: 1, scale: 1, y: [0, -6, 0] }}
+            transition={{
+              scale: { delay: 0.7, duration: 0.6 },
+              y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }
+            }}
+            className="absolute left-[-15px] top-[48%] z-10 glass rounded-2xl px-4 py-3 shadow-soft"
           >
             <div className="flex items-center gap-3">
               <span className="grid h-9 w-9 place-items-center rounded-full bg-orange-gradient text-white">

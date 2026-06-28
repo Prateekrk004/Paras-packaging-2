@@ -32,13 +32,18 @@ export function CTA() {
               Tell us about your product. We&apos;ll send samples, a structural concept and a transparent quote within 48 hours.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-accent-foreground shadow-glow transition-all hover:scale-[1.02]">
-                Get a Quote
+              <a
+                href="https://wa.me/919844250447"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-accent-foreground shadow-glow transition-all hover:scale-[1.02]"
+              >
+                WhatsApp Us
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a href="tel:+919876543210" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-medium text-white backdrop-blur hover:bg-white/10">
                 <Phone className="h-4 w-4" />
-                Contact our team
+                Contact Us
               </a>
             </div>
           </div>

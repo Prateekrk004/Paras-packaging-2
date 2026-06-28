@@ -39,7 +39,7 @@ export function Navbar() {
           }`}
         >
           <a href="#top" className="flex items-center gap-2">
-            <Logo className="h-10 w-auto sm:h-11" />
+            <Logo className="h-[72px] w-auto sm:h-[84px]" />
           </a>
 
           <nav className="hidden items-center justify-center gap-8 lg:flex">

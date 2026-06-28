@@ -6,14 +6,31 @@ import { Logo } from "./Logo";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Name is too short").max(80),
-  company: z.string().trim().min(1, "Company is required").max(120),
   email: z.string().trim().email("Enter a valid email").max(200),
   phone: z.string().trim().min(6, "Enter a valid phone").max(20),
   requirement: z.string().trim().min(1, "Select a requirement").max(80),
   message: z.string().trim().min(10, "Tell us a bit more").max(1000),
 });
 
-const requirements = ["Food Packaging", "Corrugated Boxes", "Custom Printed", "Retail", "Industrial", "Eco-Friendly"];
+const requirements = [
+  "Premium Paper Products",
+  "Bio Cornstarch Products",
+  "Biodegradable Products (Brown)",
+  "Biodegradable Products (White)",
+  "Paper Products (Full Catalogue)",
+  "Paper Bags",
+  "PET Bottles",
+  "Catering Products",
+  "Baking / Bakery Items",
+  "Sweet Boxes",
+  "Rigid Boxes",
+  "Plastic Packaging 1",
+  "Plastic Packaging 2",
+  "Plastic Packaging 3",
+  "Plastic Packaging 4",
+  "Fruit Punnet Boxes",
+  "PET Jars",
+];
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -51,18 +68,33 @@ export function Contact() {
 
             <ul className="mt-10 space-y-5">
               {[
-                { icon: MapPin, label: "Visit", value: "Plot 14, Industrial Estate, Mumbai 400072, India" },
-                { icon: Phone, label: "Call", value: "+91 98765 43210" },
-                { icon: Mail, label: "Email", value: "hello@paraspackaging.co" },
+                { icon: MapPin, label: "Visit", value: "44/1, Avenue Rd, opp. to shivam trading co, Medarpet, Old Tharagupet, Dodpete, Nagarathpete, Bengaluru, Karnataka 560002" },
+                { icon: Phone, label: "Call", value: "+91 98442 50447", href: "tel:+919844250447" },
                 { icon: Clock, label: "Hours", value: "Mon – Sat · 9:30 AM – 7:00 PM IST" },
               ].map((c) => (
                 <li key={c.label} className="flex items-start gap-4">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-card ring-1 ring-foreground/10">
-                    <c.icon className="h-4.5 w-4.5 text-accent" />
-                  </span>
+                  {c.href ? (
+                    <a
+                      href={c.href}
+                      className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-card ring-1 ring-foreground/10 hover:bg-accent/10 transition-colors"
+                      title={`Call ${c.value}`}
+                    >
+                      <c.icon className="h-4.5 w-4.5 text-accent" />
+                    </a>
+                  ) : (
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-card ring-1 ring-foreground/10">
+                      <c.icon className="h-4.5 w-4.5 text-accent" />
+                    </span>
+                  )}
                   <div className="min-w-0">
                     <div className="text-xs uppercase tracking-wider text-foreground/55">{c.label}</div>
-                    <div className="mt-0.5 text-sm text-foreground">{c.value}</div>
+                    {c.href ? (
+                      <a href={c.href} className="mt-0.5 inline-block text-sm text-foreground hover:text-accent transition-colors">
+                        {c.value}
+                      </a>
+                    ) : (
+                      <div className="mt-0.5 text-sm text-foreground">{c.value}</div>
+                    )}
                   </div>
                 </li>
               ))}
@@ -71,7 +103,7 @@ export function Contact() {
             <div className="mt-10 overflow-hidden rounded-2xl border border-foreground/10 shadow-soft">
               <iframe
                 title="Paras Packaging location"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=72.82%2C19.05%2C72.93%2C19.13&layer=mapnik"
+                src="https://maps.google.com/maps?q=Paras%20packaging%20%26%20co%2C%2044%2F1%2C%20Avenue%20Rd%2C%20opp.%20to%20shivam%20trading%20co%2C%20Medarpet%2C%20Old%20Tharagupet%2C%20Dodpete%2C%20Nagarathpete%2C%20Bengaluru%2C%20Karnataka%20560002&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 className="h-56 w-full"
                 loading="lazy"
               />
@@ -100,8 +132,7 @@ export function Contact() {
             ) : (
               <>
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                  <Field label="Full name" name="name" placeholder="Your name" />
-                  <Field label="Company" name="company" placeholder="Company name" />
+                  <Field label="Full name" name="name" placeholder="Your name" className="sm:col-span-2" />
                   <Field label="Email" name="email" type="email" placeholder="you@brand.com" />
                   <Field label="Phone" name="phone" type="tel" placeholder="+91 98765 43210" />
                 </div>
@@ -126,13 +157,15 @@ export function Contact() {
                   />
                 </div>
                 {err && <p className="mt-3 text-sm text-destructive">{err}</p>}
-                <button
-                  type="submit"
+                <a
+                  href="https://wa.me/919844250447"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-7 py-4 text-sm font-medium text-primary-foreground shadow-elegant transition-all hover:bg-accent hover:shadow-glow cursor-pointer"
                 >
-                  Send enquiry
+                  Connect With Us
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                </a>
                 <p className="mt-4 text-center text-xs text-foreground/50">We respond within 1 business day. Your data stays private.</p>
               </>
             )}
@@ -143,9 +176,9 @@ export function Contact() {
   );
 }
 
-function Field({ label, name, type = "text", placeholder }: { label: string; name: string; type?: string; placeholder?: string }) {
+function Field({ label, name, type = "text", placeholder, className }: { label: string; name: string; type?: string; placeholder?: string; className?: string }) {
   return (
-    <div>
+    <div className={className}>
       <label className="text-xs font-medium uppercase tracking-wider text-foreground/55">{label}</label>
       <input
         type={type}

@@ -17,7 +17,7 @@ const categories: Category[] = [
     id: "premium-paper-products",
     title: "Premium Paper Products",
     desc: "Luxury paperboard packaging, customized product boxes, and elegant card finishes.",
-    img: "https://i.ibb.co/TDpP23Pt/paper-products.jpg",
+    img: "https://i.ibb.co/7tMJstn4/Whats-App-Image-2026-06-28-at-22-24-51.jpg",
     pdf: "/catalogs/premium-paper-products.pdf",
     tags: ["Premium", "Custom Print", "Luxury"]
   },
@@ -49,7 +49,7 @@ const categories: Category[] = [
     id: "paper-products-full",
     title: "Paper Products (Full Catalogue)",
     desc: "Comprehensive selection of high-quality paper food-service packaging.",
-    img: "https://images.unsplash.com/photo-1564758564527-b97d79cb27c1?auto=format&fit=crop&q=80&w=600",
+    img: "https://i.ibb.co/7tMJstn4/Whats-App-Image-2026-06-28-at-22-24-51.jpg",
     pdf: "/catalogs/paper-products-full.pdf",
     tags: ["Complete Range", "F&B", "Cups"]
   },
@@ -113,7 +113,7 @@ const categories: Category[] = [
     id: "plastic-packaging-2",
     title: "Plastic Packaging 2",
     desc: "Divided food meal containers, bento-style trays, and multi-compartment lunch supplies.",
-    img: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&q=80&w=600",
+    img: "https://i.ibb.co/Tyk0Lv3/Whats-App-Image-2026-06-28-at-22-00-47.jpg",
     pdf: "/catalogs/plastic-packaging-2.pdf",
     tags: ["Meal Prep", "Bento", "Containers"]
   },
@@ -121,7 +121,7 @@ const categories: Category[] = [
     id: "plastic-packaging-3",
     title: "Plastic Packaging 3",
     desc: "Premium plastic cups, transparent portion tubs, and dessert packaging items.",
-    img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=600",
+    img: "https://i.ibb.co/dJ6KVRTk/Whats-App-Image-2026-06-28-at-22-08-53.jpg",
     pdf: "/catalogs/plastic-packaging-3.pdf",
     tags: ["Clear Cups", "Desserts", "Portion"]
   },
@@ -129,7 +129,7 @@ const categories: Category[] = [
     id: "plastic-packaging-4",
     title: "Plastic Packaging 4",
     desc: "Heavy-duty plastic transport crates, durable containers, and logistics tubs.",
-    img: "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?auto=format&fit=crop&q=80&w=600",
+    img: "https://i.ibb.co/dJ6KVRTk/Whats-App-Image-2026-06-28-at-22-08-53.jpg",
     pdf: "/catalogs/plastic-packaging-4.pdf",
     tags: ["Industrial", "Crates", "Logistics"]
   },
