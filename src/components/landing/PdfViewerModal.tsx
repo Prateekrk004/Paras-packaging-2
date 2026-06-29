@@ -73,7 +73,7 @@ export function PdfViewerModal({ isOpen, onClose, pdfUrl, title, description }: 
 
     let isCurrent = true;
 
-    import("pdfjs-dist")
+    import("pdfjs-dist/legacy/build/pdf.min.mjs")
       .then((pdfjsLib) => {
         if (!isCurrent) return;
         // Configure PDF.js worker using official Vite-compatible worker url

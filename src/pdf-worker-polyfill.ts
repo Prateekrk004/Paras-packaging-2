@@ -11,5 +11,5 @@ if (typeof (Promise as any).withResolvers === 'undefined') {
   };
 }
 
-// Import the original PDF.js worker
-import 'pdfjs-dist/build/pdf.worker.min.mjs';
+// Import the legacy PDF.js worker
+import 'pdfjs-dist/legacy/build/pdf.worker.min.mjs';
