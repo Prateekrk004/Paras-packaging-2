@@ -1,4 +1,4 @@
-// Polyfill Promise.withResolvers for older browsers/devices
+// Polyfill Promise.withResolvers for the Web Worker context
 if (typeof (Promise as any).withResolvers === 'undefined') {
   (Promise as any).withResolvers = function <T>() {
     let resolve: (value: T | PromiseLike<T>) => void = () => {};
@@ -11,13 +11,5 @@ if (typeof (Promise as any).withResolvers === 'undefined') {
   };
 }
 
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./styles.css";
-
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+// Import the original PDF.js worker
+import 'pdfjs-dist/build/pdf.worker.min.mjs';

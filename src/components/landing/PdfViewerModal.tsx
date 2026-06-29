@@ -12,7 +12,7 @@ import {
   FileWarning, 
   Maximize2 
 } from "lucide-react";
-import pdfjsWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+import pdfjsWorker from "../../pdf-worker-polyfill?worker&url";
 
 interface PdfViewerModalProps {
   isOpen: boolean;
