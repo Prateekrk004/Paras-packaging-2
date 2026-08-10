@@ -34,7 +34,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-card/60 px-4 py-1.5 text-xs font-medium tracking-wide text-foreground/70 backdrop-blur"
           >
             <Sparkles className="h-3.5 w-3.5 text-accent" />
-            House of Packaging Material — Est. since 2003
+            House of Packaging Material — Est. since 1953
           </motion.div>
 
           <motion.div
@@ -76,7 +76,7 @@ export function Hero() {
             className="mt-9 flex flex-wrap items-center gap-3"
           >
             <a
-              href="https://wa.me/919844250447"
+              href="https://wa.me/919035554232"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-medium text-white shadow-elegant transition-all hover:scale-[1.02] hover:bg-[#1ebd59] hover:shadow-glow"

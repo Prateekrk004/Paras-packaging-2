@@ -33,7 +33,7 @@ export function CTA() {
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <a
-                href="https://wa.me/919844250447"
+                href="https://wa.me/919035554232"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-accent-foreground shadow-glow transition-all hover:scale-[1.02]"
@@ -41,7 +41,7 @@ export function CTA() {
                 WhatsApp Us
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
-              <a href="tel:+919876543210" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-medium text-white backdrop-blur hover:bg-white/10">
+              <a href="tel:+919035554232" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-medium text-white backdrop-blur hover:bg-white/10">
                 <Phone className="h-4 w-4" />
                 Contact Us
               </a>
