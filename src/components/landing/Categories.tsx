@@ -17,7 +17,7 @@ const categories: Category[] = [
     id: "premium-paper-products",
     title: "Premium Paper Products",
     desc: "Luxury paperboard packaging, customized product boxes, and elegant card finishes.",
-    img: "https://i.ibb.co/7tMJstn4/Whats-App-Image-2026-06-28-at-22-24-51.jpg",
+    img: "https://i.ibb.co/hRzqPmBH/premium-aper-products-image.webp",
     pdf: "/catalogs/premium-paper-products.pdf",
     tags: ["Premium", "Custom Print", "Luxury"]
   },
@@ -41,7 +41,7 @@ const categories: Category[] = [
     id: "biodegradable-products-white",
     title: "Biodegradable Products (White)",
     desc: "Hygienic white biodegradable plates, compartment trays, and clamshells.",
-    img: "https://i.ibb.co/Gy3b9mj/bidegradable-white.jpg",
+    img: "https://i.ibb.co/zhtX3rvZ/biodegradable-products-white.png",
     pdf: "/catalogs/biodegradable-products-white.pdf",
     tags: ["White", "Food Grade", "Trays"]
   },
@@ -129,7 +129,7 @@ const categories: Category[] = [
     id: "plastic-packaging-4",
     title: "Plastic Packaging 4",
     desc: "Heavy-duty plastic transport crates, durable containers, and logistics tubs.",
-    img: "https://i.ibb.co/dJ6KVRTk/Whats-App-Image-2026-06-28-at-22-08-53.jpg",
+    img: "https://i.ibb.co/kg27pLVF/food-packaging-containers-250x250.jpg",
     pdf: "/catalogs/plastic-packaging-4.pdf",
     tags: ["Industrial", "Crates", "Logistics"]
   },
@@ -145,9 +145,25 @@ const categories: Category[] = [
     id: "pet-jars",
     title: "PET Jars",
     desc: "Wide-mouth plastic screw-on jars for bulk confectionery, cookies, dry ingredients, and spices.",
-    img: "https://i.ibb.co/vC3PfPzZ/Gemini-Generated-Image-ae2srpae2srpae2s.png",
+    img: "https://i.ibb.co/QhScfYR/PET-Jars-image.jpg",
     pdf: "/catalogs/pet-jars.pdf",
-    tags: ["Jars", "Screw Cap", "Spice Storage"]
+    tags: ["Jars", "Spice Storage", "Bulk Storage"]
+  },
+  {
+    id: "paavan-brochure",
+    title: "Paavan Brochure",
+    desc: "Comprehensive product brochure showcasing Paavan brand eco-conscious packaging solutions.",
+    img: "https://i.ibb.co/8gXWNpfP/Whats-App-Image-2026-08-10-at-16-52-08.jpg",
+    pdf: "/catalogs/paavan-brochure.pdf",
+    tags: ["Brochure", "Corporate", "Paavan"]
+  },
+  {
+    id: "paper-pouch",
+    title: "Paper Pouch",
+    desc: "Versatile paper pouches designed for convenient, sustainable, and reliable packaging across a range of applications.",
+    img: "https://i.ibb.co/DDVpCjPZ/Whats-App-Image-2026-08-10-at-16-58-33.jpg",
+    pdf: "/catalogs/paper-pouch.pdf",
+    tags: ["Paper", "Sustainable", "Packaging"]
   }
 ];
 

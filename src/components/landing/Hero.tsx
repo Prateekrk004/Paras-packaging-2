@@ -4,10 +4,10 @@ import { useRef } from "react";
 import { Counter } from "./Counter";
 import { TextAnimate } from "@/registry/magicui/text-animate";
 
-const heroImg = "https://i.ibb.co/m564FSnP/Whats-App-Image-2026-06-28-at-22-39-16.jpg";
-const ecoImg = "https://i.ibb.co/sptG8d72/Whats-App-Image-2026-06-28-at-22-40-27.jpg";
-const customImg = "https://i.ibb.co/4ZwJdtM0/Whats-App-Image-2026-06-28-at-22-40-12.jpg";
-const industrialImg = "https://i.ibb.co/bM70scRz/Whats-App-Image-2026-06-28-at-22-40-41.jpg";
+const heroImg = "https://i.ibb.co/XrRsHTS3/Gemini-Generated-Image-porz50porz50porz.png";
+const ecoImg = "https://i.ibb.co/hRzqPmBH/premium-paper-products-image.webp";
+const customImg = "https://i.ibb.co/3Y9CvBT4/baking-pic.jpg";
+const industrialImg = "https://i.ibb.co/v4jTL4Mt/bidegradable-brown.webp";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -37,19 +37,20 @@ export function Hero() {
             House of Packaging Material — Est. since 2003
           </motion.div>
 
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display mt-6 text-[clamp(2.75rem,6.5vw,5.5rem)] font-medium leading-[0.98] tracking-tight text-foreground"
+            className="mt-6"
           >
-            <TextAnimate animation="slideLeft" by="character" as="span" delay={0.1}>
-              Paras
-            </TextAnimate>{" "}
-            <TextAnimate animation="slideLeft" by="character" as="span" className="text-accent" delay={0.25}>
-              Packaging
-            </TextAnimate>
-          </motion.h1>
+            {/* Developer Note: Ensure the hero image file points to a version of the logo asset that only displays the 'Paras PACKAGING & Co.' text typography. */}
+            <img
+              src="https://i.ibb.co/F4BcbG6n/Whats-App-Image-2026-07-07-at-14-11-48-removebg-preview.png"
+              alt="Paras Packaging & Co."
+              className="h-auto max-w-full sm:max-w-md md:max-w-xl object-contain mb-6 filter drop-shadow-sm"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -100,7 +101,7 @@ export function Hero() {
             className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-foreground/10 pt-8"
           >
             {[
-              { v: 20, suffix: "+", label: "Years experience" },
+              { v: 45, suffix: "+", label: "Years experience" },
               { v: 500, suffix: "+", label: "Happy clients" },
               { v: 50, suffix: "M+", label: "Units delivered" },
             ].map((s) => (

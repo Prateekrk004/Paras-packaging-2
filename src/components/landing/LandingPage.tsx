@@ -2,6 +2,7 @@ import { Navbar } from "./Navbar";
 import { Hero } from "./Hero";
 import { Categories } from "./Categories";
 import { WhyUs } from "./WhyUs";
+import { Clients } from "./Clients";
 import { Sustainability } from "./Sustainability";
 import { Process } from "./Process";
 import { Industries } from "./Industries";
@@ -18,6 +19,7 @@ export default function LandingPage() {
         <Hero />
         <Categories />
         <WhyUs />
+        <Clients />
         <Sustainability />
         <Process />
         <Industries />

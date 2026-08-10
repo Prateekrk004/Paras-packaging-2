@@ -12,7 +12,7 @@ import {
   FileWarning, 
   Maximize2 
 } from "lucide-react";
-import pdfjsWorker from "../../pdf-worker-polyfill?worker&url";
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
 interface PdfViewerModalProps {
   isOpen: boolean;
@@ -73,7 +73,7 @@ export function PdfViewerModal({ isOpen, onClose, pdfUrl, title, description }: 
 
     let isCurrent = true;
 
-    import("pdfjs-dist/legacy/build/pdf.min.mjs")
+    import("pdfjs-dist")
       .then((pdfjsLib) => {
         if (!isCurrent) return;
         // Configure PDF.js worker using official Vite-compatible worker url

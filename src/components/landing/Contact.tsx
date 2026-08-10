@@ -68,7 +68,7 @@ export function Contact() {
 
             <ul className="mt-10 space-y-5">
               {[
-                { icon: MapPin, label: "Visit", value: "44/1, Avenue Rd, opp. to shivam trading co, Medarpet, Old Tharagupet, Dodpete, Nagarathpete, Bengaluru, Karnataka 560002" },
+                { icon: MapPin, label: "Visit", value: "444/1, Avenue Rd, opp. to shivam trading co, Medarpet, Old Tharagupet, Dodpete, Nagarathpete, Bengaluru, Karnataka 560002" },
                 { icon: Phone, label: "Call", value: "+91 98442 50447", href: "tel:+919844250447" },
                 { icon: Clock, label: "Hours", value: "Mon – Sat · 9:30 AM – 7:00 PM IST" },
               ].map((c) => (
