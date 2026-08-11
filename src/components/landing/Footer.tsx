@@ -91,7 +91,7 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 shrink-0 text-accent mt-0.5" />
                 <span className="leading-relaxed">
-                  444/1, Avenue Rd, opp. to shivam trading co, Medarpet, Old Tharagupet, Dodpete, Nagarathpete, Bengaluru, Karnataka 560002
+                  441/1, Avenue Rd, opp. to shivam trading co, Medarpet, Old Tharagupet, Dodpete, Nagarathpete, Bengaluru, Karnataka 560002
                 </span>
               </li>
               <li className="flex items-center gap-3">
