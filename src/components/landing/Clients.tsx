@@ -38,6 +38,26 @@ const clients: ClientLogo[] = [
     name: "KMF (Nandini)",
     logoUrl: "https://i.ibb.co/Z1Mgr6MT/images-q-tbn-ANd9-Gc-Q7-Qay7jxk-IWus-ZNJNCRB-h-Ys-QE7jkr4-Ex-Mb-Q1z-VTx-I3-Rj-KPgt-U2w-L9-MHi0-s-10.jpg",
   },
+  {
+    name: "Client Brand 9",
+    logoUrl: "https://i.ibb.co/Pvk6DmBP/47f8ccc7ee4fa0230f9a2bbac7420648-1728976968.webp",
+  },
+  {
+    name: "Client Brand 10",
+    logoUrl: "https://i.ibb.co/Zp8Vr33B/images-q-tbn-ANd9-Gc-TE3-Dp3-Uz-Err4wrn2pve155-B5kh5-TGrsg-P-ngdc-Fir-Lp7-Zw-S8m-M2mj-Z-pu-S-s-10.png",
+  },
+  {
+    name: "Client Brand 11",
+    logoUrl: "https://i.ibb.co/JRfy13qL/images-q-tbn-ANd9-Gc-Tz0-WS9jg1jq6-Sg-G5e-S3ws-Izcw-Rv-Zb-0-R4o-ANxqjl-VWw-Q-s.jpg",
+  },
+  {
+    name: "Client Brand 12",
+    logoUrl: "https://i.ibb.co/mVpZtx5H/11967282-wlehnhtqmaihf0u.jpg",
+  },
+  {
+    name: "Client Brand 13",
+    logoUrl: "https://i.ibb.co/dsF7hHwP/images-q-tbn-ANd9-Gc-Rn-RMrk2x5-Xng8-QM3-Ssj26-Ecqcp-ZUf-F1-A1-Mut0m-LAmd-Jlnx-BCsi-Qj-E7-G15d-s-10.jpg",
+  },
 ];
 
 export function Clients() {
@@ -72,13 +92,13 @@ export function Clients() {
           {marqueeList.map((client, idx) => (
             <div
               key={`${client.name}-${idx}`}
-              className="mx-4 sm:mx-6 flex items-center justify-center shrink-0 rounded-2xl border border-foreground/10 bg-white/95 dark:bg-card/90 px-6 sm:px-10 py-5 sm:py-6 h-28 sm:h-36 min-w-[200px] sm:min-w-[260px] shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-md"
+              className="mx-3.5 sm:mx-6 flex items-center justify-center shrink-0 rounded-2xl border border-foreground/10 bg-white/95 dark:bg-card/90 px-6 sm:px-8 py-4 sm:py-6 h-32 sm:h-44 min-w-[220px] sm:min-w-[300px] shadow-sm transition-all duration-300 hover:border-accent/40 hover:shadow-md"
             >
               <img
                 src={client.logoUrl}
                 alt={client.name}
                 loading="lazy"
-                className="max-h-20 sm:max-h-24 w-auto max-w-[170px] sm:max-w-[220px] object-contain transition-transform duration-300 hover:scale-105"
+                className="max-h-24 sm:max-h-32 w-auto max-w-[180px] sm:max-w-[260px] object-contain transition-transform duration-300 hover:scale-105"
               />
             </div>
           ))}
